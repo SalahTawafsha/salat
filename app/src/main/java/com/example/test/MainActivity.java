@@ -157,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             Intent intent = new Intent(this, Class.forName("com.example.test.UpdateActivity"));
             intent.putExtra("read", str);
+            intent.putExtra("prev", "main");
+
 
             startActivity(intent);
         } catch (ClassNotFoundException e) {

@@ -15,7 +15,12 @@ public class MainActivity1 extends AppCompatActivity {
     }
 
     public void salat(View view) {
-
+        try {
+            Intent intent = new Intent(this, Class.forName("com.example.test.SalatActivity"));
+            startActivity(intent);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void khatma(View view) throws ClassNotFoundException {

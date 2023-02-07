@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">الختمة</string>
+    <string name="save">حفظ</string>
+    <string name="update">اضافة او حذف شخص</string>
+    <string name="fager">الفجر</string>
+    <string name="dohor">الظهر</string>
+    <string name="maghreb">المغرب</string>
+    <string name="eshaa">العشاء</string>
+    <string name="aser">العصر</string>
 </resources>

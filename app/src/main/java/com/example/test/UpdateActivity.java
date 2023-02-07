@@ -30,8 +30,12 @@ public class UpdateActivity extends AppCompatActivity {
         String os = String.valueOf(textView.getText());
         FileOutputStream fOut;
         try {
-            fOut = openFileOutput("myFile.txt",
-                    MODE_PRIVATE);
+            if (String.valueOf(getIntent().getExtras().get("prev")).equals("main"))
+                fOut = openFileOutput("myFile.txt",
+                        MODE_PRIVATE);
+            else
+                fOut = openFileOutput("salat.txt",
+                        MODE_PRIVATE);
             OutputStreamWriter osw = new OutputStreamWriter(fOut);
             //---write the string to the file---
 
@@ -43,10 +47,5 @@ public class UpdateActivity extends AppCompatActivity {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-    }
-
-    public void back(View view) throws ClassNotFoundException {
-        Intent intent = new Intent(this, Class.forName("com.example.test.MainActivity"));
-        startActivity(intent);
     }
 }
