@@ -2,12 +2,10 @@ package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -43,6 +41,8 @@ public class UpdateActivity extends AppCompatActivity {
 
             osw.flush();
             osw.close();
+
+            Toast.makeText(this, "File Updated = )", Toast.LENGTH_SHORT).show();
 
         } catch (IOException e1) {
             e1.printStackTrace();

@@ -4,11 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,6 +17,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         mainInterface();
     }
 
@@ -35,15 +36,20 @@ public class MainActivity extends AppCompatActivity {
                 while ((i = isr.read()) != -1)
                     readString.append((char) i);
 
-
-                Toast.makeText(getBaseContext(), "File added successfully!",
-                        Toast.LENGTH_SHORT).show();
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
 
 
-            String str = "عمر سليمان:\nعمر جمال:\nمحمد الحج:\nانس ابو عويس:\nمصعب الصوص:\nصلاح ابو العليا:\nحمزة سعيد:";
+            String str = "عمر سليمان:\n" +
+                    "عمر جمال:\n" +
+                    "محمد الحج:\n" +
+                    "انس ابو عويس:\n" +
+                    "مصعب الصوص:\n" +
+                    "صلاح ابو العليا:\n" +
+                    "مهتدي درابي:\n" +
+                    "نور فقهاء:\n" +
+                    "محمد خالد:";
 
             FileOutputStream fOut;
             try {

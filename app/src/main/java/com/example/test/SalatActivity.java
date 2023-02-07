@@ -7,13 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -49,7 +45,11 @@ public class SalatActivity extends AppCompatActivity {
         maghreb = findViewById(R.id.button3);
         eshaa = findViewById(R.id.button4);
 
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         fillSalat();
 
         checkFile();
@@ -143,8 +143,8 @@ public class SalatActivity extends AppCompatActivity {
                     if (s.length() >= 34 && s.startsWith("<meta name=\"description\" content=\"")) {
                         String[] tokens = s.substring(34, 140).split("[.]");
                         for (int i = 0; i < tokens.length; i++) {
-                            String[] tokenss = tokens[i].trim().split(" ");
-                            salat[i] = tokenss[0];
+                            String[] tokensStrings = tokens[i].trim().split(" ");
+                            salat[i] = tokensStrings[0];
                         }
                         break;
                     }
