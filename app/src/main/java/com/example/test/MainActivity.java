@@ -4,19 +4,41 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
+    private final ArrayList<String> names = new ArrayList<>();
+    private EditText start;
+    private EditText result;
+    private EditText numOfPages;
+    private Button today;
+    private Button tomorrow;
+    private Button update;
+    private StringBuilder readString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        start = findViewById(R.id.editTextNumber);
+        result = findViewById(R.id.textView2);
+        numOfPages = findViewById(R.id.t1);
+
+        today = findViewById(R.id.tod);
+        tomorrow = findViewById(R.id.tom);
+        update = findViewById(R.id.addDel);
+
     }
 
     @Override
@@ -26,17 +48,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mainInterface() {
-
-        StringBuilder readString = new StringBuilder();
+        names.clear();
+        readString = new StringBuilder();
         try {
             FileInputStream fIn = openFileInput("myFile.txt");
             InputStreamReader isr = new InputStreamReader(fIn);
-            if (isr.ready()) {
-                int i;
-                while ((i = isr.read()) != -1)
-                    readString.append((char) i);
+            Scanner scan = new Scanner(isr);
 
-            }
+            if (isr.ready())
+                while (scan.hasNextLine()) {
+                    String s = scan.nextLine();
+                    names.add(s);
+                    readString.append(s).append("\n");
+                }
+
+
         } catch (IOException ioe) {
             ioe.printStackTrace();
 
@@ -51,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                     "نور فقهاء:\n" +
                     "محمد خالد:";
 
+            readString = new StringBuilder(str);
+            names.addAll(Arrays.asList("عمر سليمان", "عمر جمال", "محمد الحج", "انس ابو عويس", "مصعب الصوص", "صلاح ابو العليا", "مهتدي درابي", "نور الفقهاء", "محمد خالد"));
+
             FileOutputStream fOut;
             try {
                 fOut = openFileOutput("myFile.txt",
@@ -63,12 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 osw.flush();
                 osw.close();
 
-                FileInputStream fIn = openFileInput("myFile.txt");
-                InputStreamReader isr = new InputStreamReader(fIn);
-
-                int i;
-                while ((i = isr.read()) != -1)
-                    readString.append((char) i);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -77,38 +100,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        update.setOnClickListener(e -> secInterface(readString.toString()));
 
-        ArrayList<String> names = new ArrayList<>();
-        setContentView(R.layout.activity_main);
-        EditText t = findViewById(R.id.editTextNumber);
-        EditText t1 = findViewById(R.id.textView2);
-        EditText t3 = findViewById(R.id.t1);
+        today.setOnClickListener(e -> {
+            result.setText("");
+            if (!String.valueOf(numOfPages.getText()).equals("") && !String.valueOf(start.getText()).equals("")) {
 
-        Button b = findViewById(R.id.tod);
-        Button b1 = findViewById(R.id.tom);
-        Button addRem = findViewById(R.id.addDel);
-
-        String finalRead = readString.toString();
-
-        addRem.setOnClickListener(e -> secInterface(finalRead));
-
-        b.setOnClickListener(e -> {
-            t1.setText("");
-            names.clear();
-            if (!String.valueOf(t3.getText()).equals("") && !String.valueOf(t.getText()).equals("")) {
-                StringBuilder str = new StringBuilder();
-                for (int i = 0; i < finalRead.length(); i++) {
-                    if (finalRead.charAt(i) == '\n') {
-                        names.add(str.toString());
-                        str = new StringBuilder();
-                    } else
-                        str.append(finalRead.charAt(i));
-                }
-                names.add(str.toString());
-
-                int x = Integer.parseInt(String.valueOf(t3.getText()));
-
-                int start = Integer.parseInt(t.getText().toString());
+                int x = Integer.parseInt(String.valueOf(numOfPages.getText()));
+                int start = Integer.parseInt(this.start.getText().toString());
 
                 StringBuilder s = new StringBuilder("صفحات اليوم🖤\n");
                 for (int i = 0; i < names.size(); i++) {
@@ -119,29 +118,16 @@ public class MainActivity extends AppCompatActivity {
                     s.append("\n");
                 }
 
-                t1.setText(s.toString());
+                result.setText(s.toString());
             }
         });
 
-        b1.setOnClickListener(e -> {
-            t1.setText("");
-            names.clear();
-            if (!String.valueOf(t3.getText()).equals("") && !String.valueOf(t.getText()).equals("")) {
+        tomorrow.setOnClickListener(e -> {
+            result.setText("");
+            if (!String.valueOf(numOfPages.getText()).equals("") && !String.valueOf(start.getText()).equals("")) {
 
-                StringBuilder str = new StringBuilder();
-                for (int i = 0; i < finalRead.length(); i++) {
-                    if (finalRead.charAt(i) == '\n') {
-                        names.add(str.toString());
-                        str = new StringBuilder();
-                    } else
-                        str.append(finalRead.charAt(i));
-                }
-                names.add(str.toString());
-
-
-                int x = Integer.parseInt(String.valueOf(t3.getText()));
-
-                int start = Integer.parseInt(t.getText().toString());
+                int x = Integer.parseInt(String.valueOf(numOfPages.getText()));
+                int start = Integer.parseInt(this.start.getText().toString());
 
                 StringBuilder s = new StringBuilder("صفحات الغد 🖤\n");
                 for (int i = 0; i < names.size(); i++) {
@@ -152,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     s.append("\n");
                 }
 
-                t1.setText(s.toString());
+                result.setText(s.toString());
             }
         });
 
