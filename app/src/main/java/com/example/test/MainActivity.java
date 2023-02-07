@@ -1,5 +1,6 @@
 package com.example.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         String finalRead = readString.toString();
 
         addRem.setOnClickListener(e -> secInterface(finalRead));
+
         b.setOnClickListener(e -> {
             t1.setText("");
             names.clear();
@@ -151,30 +153,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void secInterface(String str) {
-        setContentView(R.layout.add_del);
-        Button back = findViewById(R.id.back);
-        Button save = findViewById(R.id.save);
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(str);
-        back.setOnClickListener(e1 -> mainInterface());
 
-        save.setOnClickListener(e -> {
-            String os = String.valueOf(textView.getText());
-            FileOutputStream fOut;
-            try {
-                fOut = openFileOutput("myFile.txt",
-                        MODE_PRIVATE);
-                OutputStreamWriter osw = new OutputStreamWriter(fOut);
-                //---write the string to the file---
+        try {
+            Intent intent = new Intent(this, Class.forName("com.example.test.UpdateActivity"));
+            intent.putExtra("read", str);
 
-                osw.write(os);
-
-                osw.flush();
-                osw.close();
-
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
+            startActivity(intent);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

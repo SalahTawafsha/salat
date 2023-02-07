@@ -7,10 +7,10 @@
     android:layout_gravity="center"
     android:background="@drawable/received_1149738849226229"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".UpdateActivity">
 
     <LinearLayout
-        android:id="@+id/vbox"
         android:layout_width="412dp"
         android:layout_height="614dp"
         android:gravity="center"
@@ -38,7 +38,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/back"
+                android:onClick="back"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -51,7 +51,7 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/save"
+                android:onClick="save"
                 android:layout_width="wrap_content"
                 android:layout_height="91dp"
                 android:layout_gravity="center"
