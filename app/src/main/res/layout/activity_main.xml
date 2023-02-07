@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/received_1149738849226229"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:baselineAligned="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:textAlignment="center">
+
+            <EditText
+                android:gravity="center"
+                android:background="@drawable/background"
+                android:id="@+id/editTextNumber"
+                android:layout_width="144dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/textview1"
+                android:layout_width="212dp"
+                android:layout_height="51dp"
+                android:background="@drawable/background"
+                android:text="بداية الصفحات:"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                android:textColorHighlight="#FFF"
+                android:textColorHint="#FFF"
+                android:textColorLink="#FFF"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:foregroundGravity="center"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:textAlignment="center">
+
+            <EditText
+                android:gravity="center"
+                android:id="@+id/t1"
+                android:layout_width="155dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/background"
+                android:ems="10"
+                android:inputType="number"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textColorHighlight="#000"
+                android:textColorHint="#FFF"
+                android:textColorLink="#FFF" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/textview21"
+                android:layout_width="214dp"
+                android:layout_height="49dp"
+                android:background="@drawable/background"
+                android:text="عدد الصفحات:"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textColorHighlight="#FFF"
+                android:textColorHint="#FFF"
+                android:textColorLink="#FFF"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="343dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/tom"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/background"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="10dp"
+                android:text="الغد"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/tod"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/background"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="10dp"
+                android:text="اليوم"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addDel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button"
+            android:gravity="center"
+            android:paddingVertical="5dp"
+            android:text="اضافة او حذف شخص"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+            <EditText
+                android:gravity="center"
+                android:id="@+id/textView2"
+                android:layout_width="358dp"
+                android:layout_height="283dp"
+                android:background="@drawable/background"
+                android:textColor="#FFF"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="#FFF"
+                android:textColorLink="#FFF" />
+
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
