@@ -132,23 +132,25 @@ public class SalatActivity extends AppCompatActivity {
         Thread t = new Thread(() -> {
             try {
 
-                URL url = new URL("https://muslimsalat.com/palestine");
+                URL url = new URL("https://shobiddak.com/prayers/prayer_today?town_id=3");
 
                 URLConnection con = url.openConnection();
 
                 Scanner scan = new Scanner(con.getInputStream());
                 salat = new String[6];
+                int j = 0;
                 while (scan.hasNextLine()) {
                     String s = scan.nextLine().trim();
-                    if (s.length() >= 34 && s.startsWith("<meta name=\"description\" content=\"")) {
-                        String[] tokens = s.substring(34, 140).split("[.]");
-                        for (int i = 0; i < tokens.length; i++) {
-                            String[] tokensStrings = tokens[i].trim().split(" ");
-                            salat[i] = tokensStrings[0];
+                    if (s.startsWith("<table class=\"list_ads\"")) {
+                        for (int i = 0; i < 6; i++) {
+                            String[] tokens = scan.nextLine().trim().split("</td></tr>");
+                            tokens = tokens[tokens.length - 1].split("</td><td>");
+                            salat[j++] = tokens[tokens.length - 1];
                         }
                         break;
                     }
                 }
+
 
                 handler.post(() -> {
                     fajer.setEnabled(true);
