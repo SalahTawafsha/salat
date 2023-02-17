@@ -165,6 +165,20 @@
                 android:textColorLink="#FFF" />
 
 
+        <Button
+            android:id="@+id/button6"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/background"
+            android:onClick="copy"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="10dp"
+            android:text="@string/copy"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

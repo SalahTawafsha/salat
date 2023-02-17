@@ -3,6 +3,7 @@ package com.example.test;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.os.HandlerCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,8 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -234,5 +237,12 @@ public class SalatActivity extends AppCompatActivity {
         }
 
         result.setText(s.toString());
+    }
+
+    public void copy(View view) {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        android.content.ClipData clip = android.content.ClipData.newPlainText("copy",result.getText().toString());
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(this, "Text Copied", Toast.LENGTH_SHORT).show();
     }
 }

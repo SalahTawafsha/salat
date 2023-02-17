@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginStart="33dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="33dp"
         android:background="@drawable/button"
         android:gravity="center"
@@ -22,13 +22,14 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <EditText
         android:id="@+id/textView1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="345dp"
+        android:layout_height="266dp"
         android:layout_marginStart="26dp"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="26dp"
@@ -41,8 +42,10 @@
         android:textColorLink="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/addDel2"
+        app:layout_constraintVertical_bias="0.142"
         tools:ignore="Autofill,LabelFor,TextFields" />
 
     <Button
@@ -125,6 +128,26 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button6"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="440dp"
+        android:background="@drawable/background"
+        android:onClick="copy"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="10dp"
+        android:text="@string/copy"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
