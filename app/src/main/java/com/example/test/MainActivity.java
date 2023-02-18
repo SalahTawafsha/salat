@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
@@ -102,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+        Collections.shuffle(names);
 
         update.setOnClickListener(e -> secInterface(readString.toString()));
 
