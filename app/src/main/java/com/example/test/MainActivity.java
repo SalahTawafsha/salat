@@ -104,11 +104,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Collections.shuffle(names);
 
         update.setOnClickListener(e -> secInterface(readString.toString()));
 
         today.setOnClickListener(e -> {
+            Collections.shuffle(names);
+
             result.setText("");
             if (!String.valueOf(numOfPages.getText()).equals("") && !String.valueOf(start.getText()).equals("")) {
 
@@ -129,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         tomorrow.setOnClickListener(e -> {
+            Collections.shuffle(names);
+
             result.setText("");
             if (!String.valueOf(numOfPages.getText()).equals("") && !String.valueOf(start.getText()).equals("")) {
 
